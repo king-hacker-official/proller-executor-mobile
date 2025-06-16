@@ -1,145 +1,309 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Resumo UNC Vega X</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <title>Proller Executor Hub</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #1e1e2f;
+      background: #0f0f0f;
       color: #eee;
-      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    button {
-      margin: 0 5px 15px 0;
-      padding: 8px 15px;
-      background: #444;
-      border: none;
-      border-radius: 5px;
-      color: #eee;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button.active, button:hover {
-      background: #6c63ff;
-    }
-    table {
+
+    nav {
       width: 100%;
-      border-collapse: collapse;
-      background: #2c2c42;
-      border-radius: 6px;
-      overflow: hidden;
+      max-width: 1200px;
+      background: #1a1a1a;
+      padding: 15px 30px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      border: 1px solid #333;
     }
-    th, td {
-      padding: 12px 15px;
-      border-bottom: 1px solid #444;
-      text-align: left;
+
+    nav h1 {
+      color: #a855f7;
+      font-size: 1.7rem;
     }
-    th {
-      background: #3d3d5a;
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
     }
-    tr.fail td {
-      color: #ff6b6b;
-      font-weight: bold;
+
+    nav ul li a {
+      color: #eee;
+      text-decoration: none;
+      transition: 0.3s;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      user-select: none;
     }
-    tr.pass td {
-      color: #70ff70;
+
+    nav ul li a:hover {
+      background: #a855f7;
+      color: #fff;
+    }
+
+    h2 {
+      color: #a855f7;
+      margin-bottom: 8px;
+    }
+
+    p.lead {
+      color: #aaa;
+      margin-bottom: 40px;
+      text-align: center;
+      max-width: 800px;
+      line-height: 1.4;
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(168, 78, 255, 0.5);
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #fff;
+      user-select: text;
+    }
+
+    .card.alert h2 {
+      color: #ff4d4d;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 15px;
+      user-select: text;
+    }
+
+    .card a {
+      margin-top: auto;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #6c63ff, #a94eff);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(169, 78, 255, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      user-select: none;
+    }
+
+    .card a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(169, 78, 255, 0.7);
+    }
+
+    footer {
+      margin-top: 50px;
+      color: #555;
+      font-size: 0.9rem;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Responsividade */
+    @media (max-width: 500px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="app">
-    <h1>Resumo UNC Vega X - Testes Executor</h1>
+  <nav>
+    <h1>Proller Hub</h1>
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Executores</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav>
 
-    <div>
-      <button
-        :class="{active: filter === 'all'}"
-        @click="filter = 'all'">Todos</button>
-      <button
-        :class="{active: filter === 'pass'}"
-        @click="filter = 'pass'">Passaram</button>
-      <button
-        :class="{active: filter === 'fail'}"
-        @click="filter = 'fail'">Falharam</button>
+  <h2>Executores Disponíveis</h2>
+  <p class="lead">
+    Aqui estão os principais executores para Roblox. Clique em download para baixar diretamente.
+  </p>
+
+  <div class="grid">
+    <!-- Trigon -->
+    <div class="card">
+      <img src="trigon.png" alt="Trigon" />
+      <h2>Trigon v2.674</h2>
+      <p>Download da versão estável do Trigon.</p>
+      <a href="https://www.mediafire.com/file/tb5p4tmh75u0e7x/Trigon_v2.674.apk/file" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
     </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Função / Teste</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="item in filteredTests"
-          :key="item.name"
-          :class="item.status === 'Fail' ? 'fail' : 'pass'"
-        >
-          <td>{{ item.name }}</td>
-          <td>{{ item.status }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Hydrogen -->
+    <div class="card alert">
+      <img src="hydrogen.png" alt="Hydrogen" />
+      <h2>Hydrogen (¡SUSPEITA DE RATS!)</h2>
+      <p>Baixe por sua conta e risco — suspeita de RAT.</p>
+      <a href="https://dl.hydrogenexecutor.com/Hydrogen-v2.650.apk" target="_blank" rel="noopener noreferrer">
+        ⚠️ Download APK
+      </a>
+    </div>
 
-    <p style="margin-top:1rem;">
-      <strong>Resumo:</strong> {{ passedCount }} passados, {{ failedCount }} falhas, {{ totalCount }} total.
-    </p>
+    <!-- Vegax -->
+    <div class="card">
+      <img src="vegax.png" alt="Vegax" />
+      <h2>Vegax</h2>
+      <p>Download oficial do Vegax.</p>
+      <a href="https://github.com/1f0yt/community/releases/download/Vegax/Vega.X.apk" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- KRNL -->
+    <div class="card">
+      <img src="krnl.png" alt="KRNL" />
+      <h2>KRNL</h2>
+      <p>Versão atualizada do KRNL.</p>
+      <a href="https://wrdcdn.net/r/54921/1749933066683/krnl_release_2.677.762_2025.6.15_32.apk" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- Cubix -->
+    <div class="card">
+      <img src="cubix.png" alt="Cubix" />
+      <h2>Cubix</h2>
+      <p>Executor Cubix para Roblox.</p>
+      <a href="https://cubixexecutor.com/apk" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- SubZero -->
+    <div class="card">
+      <img src="subzero.png" alt="SubZero" />
+      <h2>SubZero</h2>
+      <p>Executor SubZero para Roblox.</p>
+      <a href="https://subzeroexecutor.com/subzero.apk" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- Ronix -->
+    <div class="card">
+      <img src="ronix.png" alt="Ronix" />
+      <h2>Ronix</h2>
+      <p>Executor Ronix — recomendado.</p>
+      <a href="https://wearedevs.net/d/Ronix" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- Evon -->
+    <div class="card">
+      <img src="evon.png" alt="Evon" />
+      <h2>Evon</h2>
+      <p>Executor Evon atualizado.</p>
+      <a href="https://evon.cc/android/dl-a/Evon.apk" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- Nebula 64 -->
+    <div class="card">
+      <img src="nebula.png" alt="Nebula 64bit" />
+      <h2>Nebula 64bit</h2>
+      <p>Executor Nebula versão 64 bits.</p>
+      <a href="https://nebulaexecutor.com/nebula.apk" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- Nebula 32 -->
+    <div class="card">
+      <img src="nebula.png" alt="Nebula 32bit" />
+      <h2>Nebula 32bit</h2>
+      <p>Executor Nebula versão 32 bits.</p>
+      <a href="https://nebulaexecutor.com/32bit.apk" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- CodeX -->
+    <div class="card">
+      <img src="codex.svg" alt="CodeX" />
+      <h2>Code X</h2>
+      <p>Download da versão fixa do CodeX.</p>
+      <a href="https://www.mediafire.com/file/fi4pcek13z0so81/Codex_v2.670_FIX.apk/file" target="_blank" rel="noopener noreferrer">
+        📥 Baixar APK
+      </a>
+    </div>
   </div>
 
-  <script>
-    const { createApp } = Vue;
-
-    createApp({
-      data() {
-        return {
-          filter: 'all',
-          tests: [
-            { name: 'cache.invalidate', status: 'Pass' },
-            { name: 'cache.iscached', status: 'Pass' },
-            { name: 'cache.replace', status: 'Pass' },
-            { name: 'cloneref', status: 'Pass' },
-            { name: 'compareinstances', status: 'Pass' },
-            { name: 'checkcaller', status: 'Pass' },
-            { name: 'clonefunction', status: 'Pass' },
-            { name: 'getcallingscript', status: 'No test' },
-            { name: 'getscriptclosure', status: 'Fail' },
-            { name: 'hookfunction', status: 'Pass' },
-            { name: 'iscclosure', status: 'Pass' },
-            { name: 'islclosure', status: 'Pass' },
-            { name: 'isexecutorclosure', status: 'Pass' },
-            { name: 'loadstring', status: 'Pass' },
-            { name: 'newcclosure', status: 'Pass' },
-            { name: 'dofile', status: 'No test' },
-            { name: 'getcallbackvalue', status: 'Fail' },
-            // (adicione outros conforme necessário)
-          ]
-        }
-      },
-      computed: {
-        filteredTests() {
-          if (this.filter === 'all') return this.tests;
-          if (this.filter === 'pass') return this.tests.filter(t => t.status === 'Pass');
-          if (this.filter === 'fail') return this.tests.filter(t => t.status === 'Fail');
-          return this.tests;
-        },
-        passedCount() {
-          return this.tests.filter(t => t.status === 'Pass').length;
-        },
-        failedCount() {
-          return this.tests.filter(t => t.status === 'Fail').length;
-        },
-        totalCount() {
-          return this.tests.length;
-        }
-      }
-    }).mount('#app');
-  </script>
+  <footer>
+    © 2025 Proller - Todos os direitos reservados
+  </footer>
 </body>
 </html>
