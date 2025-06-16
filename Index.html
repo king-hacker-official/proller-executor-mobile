@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executores Pack | Proller</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #a855f7;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #333;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #a855f7;
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+      object-fit: contain;
+    }
+
+    .card span {
+      display: block;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 50px;
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Proller Executor Icons</h1>
+  <p>Pack de ícones para Vercel — PNG e SVG</p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="./icons/vegax.png" alt="Vegax">
+      <span>Vegax</span>
+    </div>
+    <div class="card">
+      <img src="./icons/hydrogen.png" alt="Hydrogen">
+      <span>Hydrogen</span>
+    </div>
+    <div class="card">
+      <img src="./icons/cubix.png" alt="Cubix">
+      <span>Cubix</span>
+    </div>
+    <div class="card">
+      <img src="./icons/subzero.png" alt="Subzero">
+      <span>Subzero</span>
+    </div>
+    <div class="card">
+      <img src="./icons/ronix.png" alt="Ronix">
+      <span>Ronix</span>
+    </div>
+    <div class="card">
+      <img src="./icons/trigon.png" alt="Trigon">
+      <span>Trigon</span>
+    </div>
+    <div class="card">
+      <img src="./icons/evon.png" alt="Evon">
+      <span>Evon</span>
+    </div>
+    <div class="card">
+      <img src="./icons/krnl.png" alt="KRNL">
+      <span>KRNL</span>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Proller - Todos os direitos reservados
+  </footer>
+
+</body>
+</html>
