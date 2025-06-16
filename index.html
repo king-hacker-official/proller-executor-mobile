@@ -6,70 +6,81 @@
   <title>Proller Executor Hub</title>
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+
     body {
-      background:#0a0a0a;
+      background:#0f0f0f;
       color:#eee;
-      padding-top:70px;
-    }
-    header {
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      background:#111;
-      border-bottom:1px solid #222;
-      box-shadow:0 0 15px rgba(168,78,255,0.2);
-      padding:15px 30px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      z-index:999;
-    }
-    header h1 {
-      color:#a855f7;
-      font-size:1.8rem;
-    }
-    nav a {
-      color:#ccc;
-      margin-left:20px;
-      text-decoration:none;
-      font-weight:500;
-      transition:.3s;
-    }
-    nav a:hover {
-      color:#a855f7;
-    }
-    main {
       display:flex;
       flex-direction:column;
       align-items:center;
       padding:40px 20px;
+      min-height:100vh;
     }
-    .lead {
+
+    /* Navbar */
+    nav {
+      width:100%;
+      max-width:1200px;
+      background:#1a1a1a;
+      padding:15px 30px;
+      border-radius:16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:40px;
+      border:1px solid #333;
+    }
+    nav h1 {
+      color:#a855f7;
+      font-size:1.7rem;
+    }
+    nav ul {
+      list-style:none;
+      display:flex;
+      gap:20px;
+    }
+    nav ul li a {
+      color:#eee;
+      text-decoration:none;
+      transition:.3s;
+      padding:6px 12px;
+      border-radius:8px;
+    }
+    nav ul li a:hover {
+      background:#a855f7;
+      color:#fff;
+    }
+
+    h2 {
+      color:#a855f7;
+    }
+
+    p.lead {
       color:#aaa;
       margin-bottom:40px;
       text-align:center;
       max-width:800px;
     }
+
     .grid {
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
       gap:30px;
       width:100%;
-      max-width:1000px;
+      max-width:1100px;
     }
+
     .card {
-      background:#161616;
-      border:1px solid #222;
+      background:#1a1a1a;
+      border:1px solid #333;
       border-radius:16px;
       padding:20px;
       text-align:center;
-      transition:.4s ease;
-      box-shadow:0 4px 10px rgba(0,0,0,0.5);
+      transition:transform .3s, box-shadow .3s;
     }
     .card:hover {
-      transform:translateY(-8px) scale(1.03);
+      transform:translateY(-8px);
       box-shadow:0 0 20px rgba(168,78,255,0.5);
     }
     .card img {
@@ -100,39 +111,39 @@
       text-decoration:none;
       font-weight:600;
       box-shadow:0 4px 15px rgba(169,78,255,0.4);
-      transition:.3s;
+      transition:transform .3s, box-shadow .3s;
     }
     .card a:hover {
-      transform:scale(1.08);
-      box-shadow:0 6px 25px rgba(169,78,255,0.7);
+      transform:scale(1.05);
+      box-shadow:0 6px 20px rgba(169,78,255,0.7);
     }
+
     footer {
       margin-top:50px;
       color:#555;
       font-size:.9rem;
       text-align:center;
-      padding-bottom:20px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Proller Hub</h1>
   <nav>
-    <a href="#">Início</a>
-    <a href="#">Executores</a>
-    <a href="#">Sobre</a>
+    <h1>Proller Hub</h1>
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Executores</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
   </nav>
-</header>
 
-<main>
+  <h2>Executores Disponíveis</h2>
   <p class="lead">
-    Aqui você encontra todos os executores para Roblox. Clique no botão para baixar. <br>
-    🚩 *Se algum estiver com alerta, baixe por sua conta e risco.*
+    Aqui estão os principais executores para Roblox. Clique em download para baixar diretamente.
   </p>
 
   <div class="grid">
+
     <!-- Trigon -->
     <div class="card">
       <img src="trigon.png" alt="Trigon">
@@ -147,7 +158,7 @@
     <div class="card alert">
       <img src="hydrogen.png" alt="Hydrogen">
       <h2>Hydrogen (¡SUSPEITA DE RATS!)</h2>
-      <p>Use por sua conta e risco.</p>
+      <p>Baixe por sua conta e risco — suspeita de RAT.</p>
       <a href="https://dl.hydrogenexecutor.com/Hydrogen-v2.650.apk" target="_blank">
         ⚠️ Download APK
       </a>
@@ -157,7 +168,7 @@
     <div class="card">
       <img src="vegax.png" alt="Vegax">
       <h2>Vegax</h2>
-      <p>Download da versão oficial do Vegax.</p>
+      <p>Download oficial do Vegax.</p>
       <a href="https://github.com/1f0yt/community/releases/download/Vegax/Vega.X.apk" target="_blank">
         📥 Baixar APK
       </a>
@@ -167,7 +178,7 @@
     <div class="card">
       <img src="krnl.png" alt="KRNL">
       <h2>KRNL</h2>
-      <p>Download da versão atualizada do KRNL.</p>
+      <p>Versão atualizada do KRNL.</p>
       <a href="https://wrdcdn.net/r/54921/1749933066683/krnl_release_2.677.762_2025.6.15_32.apk" target="_blank">
         📥 Baixar APK
       </a>
@@ -177,7 +188,7 @@
     <div class="card">
       <img src="cubix.png" alt="Cubix">
       <h2>Cubix</h2>
-      <p>Download da versão oficial do Cubix.</p>
+      <p>Executor Cubix para Roblox.</p>
       <a href="https://cubixexecutor.com/apk" target="_blank">
         📥 Baixar APK
       </a>
@@ -187,7 +198,7 @@
     <div class="card">
       <img src="subzero.png" alt="SubZero">
       <h2>SubZero</h2>
-      <p>Download da versão oficial do SubZero.</p>
+      <p>Executor SubZero para Roblox.</p>
       <a href="https://subzeroexecutor.com/subzero.apk" target="_blank">
         📥 Baixar APK
       </a>
@@ -197,7 +208,7 @@
     <div class="card">
       <img src="ronix.png" alt="Ronix">
       <h2>Ronix</h2>
-      <p>Download da versão oficial do Ronix.</p>
+      <p>Executor Ronix — recomendado.</p>
       <a href="https://wearedevs.net/d/Ronix" target="_blank">
         📥 Baixar APK
       </a>
@@ -207,7 +218,7 @@
     <div class="card">
       <img src="evon.png" alt="Evon">
       <h2>Evon</h2>
-      <p>Download da versão oficial do Evon.</p>
+      <p>Executor Evon atualizado.</p>
       <a href="https://evon.cc/android/dl-a/Evon.apk" target="_blank">
         📥 Baixar APK
       </a>
@@ -215,9 +226,9 @@
 
     <!-- Nebula 64 -->
     <div class="card">
-      <img src="nebula.png" alt="Nebula 64">
-      <h2>Nebula (64 bits)</h2>
-      <p>Versão para dispositivos 64 bits.</p>
+      <img src="nebula.png" alt="Nebula 64bit">
+      <h2>Nebula 64bit</h2>
+      <p>Executor Nebula versão 64 bits.</p>
       <a href="https://nebulaexecutor.com/nebula.apk" target="_blank">
         📥 Baixar APK
       </a>
@@ -225,9 +236,9 @@
 
     <!-- Nebula 32 -->
     <div class="card">
-      <img src="nebula.png" alt="Nebula 32">
-      <h2>Nebula (32 bits)</h2>
-      <p>Versão para dispositivos 32 bits.</p>
+      <img src="nebula.png" alt="Nebula 32bit">
+      <h2>Nebula 32bit</h2>
+      <p>Executor Nebula versão 32 bits.</p>
       <a href="https://nebulaexecutor.com/32bit.apk" target="_blank">
         📥 Baixar APK
       </a>
@@ -235,19 +246,19 @@
 
     <!-- CodeX -->
     <div class="card">
-      <img src="codex.png" alt="CodeX">
+      <img src="codex.svg" alt="CodeX">
       <h2>Code X</h2>
       <p>Download da versão fixa do CodeX.</p>
       <a href="https://www.mediafire.com/file/fi4pcek13z0so81/Codex_v2.670_FIX.apk/file" target="_blank">
         📥 Baixar APK
       </a>
     </div>
+
   </div>
 
   <footer>
     © 2025 Proller - Todos os direitos reservados
   </footer>
-</main>
 
 </body>
 </html>
