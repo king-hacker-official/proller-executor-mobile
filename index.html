@@ -1,71 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Hydrogen</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proller Executor Hub</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <style>
+    /* Reset básico */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+
     body {
-        background: #0f0f0f;
-        font-family: 'Poppins', sans-serif;
-        color: white;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+      background:#0f0f0f;
+      color:#eee;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:40px 20px;
+    }
+    h1 {
+      color:#a855f7;
+      font-size:2.8rem;
+      margin-bottom:10px;
+    }
+    p.lead {
+      color:#aaa;
+      margin-bottom:40px;
+      text-align:center;
+      max-width:800px;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      gap:30px;
+      width:100%;
+      max-width:1000px;
     }
     .card {
-        background: #1a1a1a;
-        border-radius: 20px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-        padding: 30px;
-        max-width: 400px;
-        width: 90%;
-        text-align: center;
-        border: 1px solid #333;
+      background:#1a1a1a;
+      border:1px solid #333;
+      border-radius:16px;
+      padding:20px;
+      text-align:center;
+      transition:transform .3s, box-shadow .3s;
+    }
+    .card:hover {
+      transform:scale(1.05);
+      box-shadow:0 0 15px rgba(168,78,255,0.6);
     }
     .card img {
-        width: 100px;
-        border-radius: 15px;
-        margin-bottom: 20px;
+      width:80px;
+      height:80px;
+      object-fit:contain;
+      margin-bottom:15px;
     }
-    .card h1 {
-        margin: 0;
-        font-size: 22px;
-        color: #ff4d4d;
+    .card h2 {
+      font-size:1.1rem;
+      margin-bottom:8px;
+      color:#fff;
+    }
+    .card.alert h2 {
+      color:#ff4d4d;
     }
     .card p {
-        color: #aaa;
-        margin: 10px 0 20px;
+      font-size:.9rem;
+      color:#bbb;
+      margin-bottom:15px;
     }
-    .download-button {
-        display: inline-block;
-        background: linear-gradient(135deg, #6c63ff, #a94eff);
-        color: white;
-        padding: 12px 25px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        box-shadow: 0 4px 15px rgba(169, 78, 255, 0.4);
-        transition: 0.3s;
+    .card a {
+      display:inline-block;
+      padding:10px 20px;
+      border-radius:50px;
+      background:linear-gradient(135deg,#6c63ff,#a94eff);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 4px 15px rgba(169,78,255,0.4);
+      transition:transform .3s, box-shadow .3s;
     }
-    .download-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(169, 78, 255, 0.6);
+    .card a:hover {
+      transform:scale(1.05);
+      box-shadow:0 6px 20px rgba(169,78,255,0.6);
     }
-</style>
+    footer {
+      margin-top:50px;
+      color:#555;
+      font-size:.9rem;
+      text-align:center;
+    }
+  </style>
 </head>
 <body>
 
-<div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Download_alt_font_awesome.svg" alt="Hydrogen Logo">
-    <h1>Hydrogen (¡SUSPEITA DE RATS!)</h1>
-    <p>Baixe por sua conta e risco. Este executor possui suspeitas de RAT.</p>
-    <a class="download-button" href="https://dl.hydrogenexecutor.com/Hydrogen-v2.650.apk" target="_blank">
+  <h1>Proller Executor Hub</h1>
+  <p class="lead">
+    Aqui você encontra todos os executores principais para Roblox — basta clicar no botão de download.  
+    Os links ainda não definidos estão como placeholders; é só substituir pelo URL real quando tiver.
+  </p>
+
+  <div class="grid">
+    <!-- Trigon -->
+    <div class="card">
+      <img src="trigon.png" alt="Trigon">
+      <h2>Trigon v2.674</h2>
+      <p>Download da versão estável do Trigon.</p>
+      <a href="https://www.mediafire.com/file/tb5p4tmh75u0e7x/Trigon_v2.674.apk/file" target="_blank">
+        📥 Baixar APK
+      </a>
+    </div>
+
+    <!-- Hydrogen -->
+    <div class="card alert">
+      <img src="hydrogen.png" alt="Hydrogen">
+      <h2>Hydrogen (¡SUSPEITA DE RATS!)</h2>
+      <p>Baixe por sua conta e risco — este executor possui suspeita de RAT.</p>
+      <a href="https://dl.hydrogenexecutor.com/Hydrogen-v2.650.apk" target="_blank">
         ⚠️ Download APK
-    </a>
-</div>
+      </a>
+    </div>
+
+    <!-- Vegax -->
+    <div class="card">
+      <img src="vegax.png" alt="Vegax">
+      <h2>Vegax</h2>
+      <p>Em breve: link de download do Vegax.</p>
+      <a href="#" target="_blank">
+        📥 Em breve
+      </a>
+    </div>
+
+    <!-- KRNL -->
+    <div class="card">
+      <img src="krnl.png" alt="KRNL">
+      <h2>KRNL</h2>
+      <p>Em breve: link de download do KRNL.</p>
+      <a href="#" target="_blank">
+        📥 Em breve
+      </a>
+    </div>
+
+    <!-- Cubix -->
+    <div class="card">
+      <img src="cubix.png" alt="Cubix">
+      <h2>Cubix</h2>
+      <p>Em breve: link de download do Cubix.</p>
+      <a href="#" target="_blank">
+        📥 Em breve
+      </a>
+    </div>
+
+    <!-- SubZero -->
+    <div class="card">
+      <img src="subzero.png" alt="SubZero">
+      <h2>SubZero</h2>
+      <p>Em breve: link de download do SubZero.</p>
+      <a href="#" target="_blank">
+        📥 Em breve
+      </a>
+    </div>
+
+    <!-- Ronix -->
+    <div class="card">
+      <img src="ronix.png" alt="Ronix">
+      <h2>Ronix</h2>
+      <p>Em breve: link de download do Ronix.</p>
+      <a href="#" target="_blank">
+        📥 Em breve
+      </a>
+    </div>
+
+    <!-- Evon -->
+    <div class="card">
+      <img src="evon.png" alt="Evon">
+      <h2>Evon</h2>
+      <p>Em breve: link de download do Evon.</p>
+      <a href="#" target="_blank">
+        📥 Em breve
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Proller - Todos os direitos reservados
+  </footer>
 
 </body>
 </html>
