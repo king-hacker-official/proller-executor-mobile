@@ -6,22 +6,47 @@
   <title>Proller Executor Hub</title>
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
     body {
-      background:#0f0f0f;
+      background:#0a0a0a;
       color:#eee;
+      padding-top:70px;
+    }
+    header {
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      background:#111;
+      border-bottom:1px solid #222;
+      box-shadow:0 0 15px rgba(168,78,255,0.2);
+      padding:15px 30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      z-index:999;
+    }
+    header h1 {
+      color:#a855f7;
+      font-size:1.8rem;
+    }
+    nav a {
+      color:#ccc;
+      margin-left:20px;
+      text-decoration:none;
+      font-weight:500;
+      transition:.3s;
+    }
+    nav a:hover {
+      color:#a855f7;
+    }
+    main {
       display:flex;
       flex-direction:column;
       align-items:center;
       padding:40px 20px;
     }
-    h1 {
-      color:#a855f7;
-      font-size:2.8rem;
-      margin-bottom:10px;
-    }
-    p.lead {
+    .lead {
       color:#aaa;
       margin-bottom:40px;
       text-align:center;
@@ -29,22 +54,23 @@
     }
     .grid {
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
       gap:30px;
       width:100%;
       max-width:1000px;
     }
     .card {
-      background:#1a1a1a;
-      border:1px solid #333;
+      background:#161616;
+      border:1px solid #222;
       border-radius:16px;
       padding:20px;
       text-align:center;
-      transition:transform .3s, box-shadow .3s;
+      transition:.4s ease;
+      box-shadow:0 4px 10px rgba(0,0,0,0.5);
     }
     .card:hover {
-      transform:scale(1.05);
-      box-shadow:0 0 15px rgba(168,78,255,0.6);
+      transform:translateY(-8px) scale(1.03);
+      box-shadow:0 0 20px rgba(168,78,255,0.5);
     }
     .card img {
       width:80px;
@@ -74,25 +100,36 @@
       text-decoration:none;
       font-weight:600;
       box-shadow:0 4px 15px rgba(169,78,255,0.4);
-      transition:transform .3s, box-shadow .3s;
+      transition:.3s;
     }
     .card a:hover {
-      transform:scale(1.05);
-      box-shadow:0 6px 20px rgba(169,78,255,0.6);
+      transform:scale(1.08);
+      box-shadow:0 6px 25px rgba(169,78,255,0.7);
     }
     footer {
       margin-top:50px;
       color:#555;
       font-size:.9rem;
       text-align:center;
+      padding-bottom:20px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Proller Executor Hub</h1>
+<header>
+  <h1>Proller Hub</h1>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#">Executores</a>
+    <a href="#">Sobre</a>
+  </nav>
+</header>
+
+<main>
   <p class="lead">
-    Aqui você encontra todos os executores principais para Roblox — basta clicar no botão de download.
+    Aqui você encontra todos os executores para Roblox. Clique no botão para baixar. <br>
+    🚩 *Se algum estiver com alerta, baixe por sua conta e risco.*
   </p>
 
   <div class="grid">
@@ -110,7 +147,7 @@
     <div class="card alert">
       <img src="hydrogen.png" alt="Hydrogen">
       <h2>Hydrogen (¡SUSPEITA DE RATS!)</h2>
-      <p>Baixe por sua conta e risco — este executor possui suspeita de RAT.</p>
+      <p>Use por sua conta e risco.</p>
       <a href="https://dl.hydrogenexecutor.com/Hydrogen-v2.650.apk" target="_blank">
         ⚠️ Download APK
       </a>
@@ -129,8 +166,8 @@
     <!-- KRNL -->
     <div class="card">
       <img src="krnl.png" alt="KRNL">
-      <h2>KRNL v2.677.762</h2>
-      <p>Versão 2025.6.15 para Android (32-bit).</p>
+      <h2>KRNL</h2>
+      <p>Download da versão atualizada do KRNL.</p>
       <a href="https://wrdcdn.net/r/54921/1749933066683/krnl_release_2.677.762_2025.6.15_32.apk" target="_blank">
         📥 Baixar APK
       </a>
@@ -170,37 +207,47 @@
     <div class="card">
       <img src="evon.png" alt="Evon">
       <h2>Evon</h2>
-      <p>Download da versão oficial do Evon para Android.</p>
+      <p>Download da versão oficial do Evon.</p>
       <a href="https://evon.cc/android/dl-a/Evon.apk" target="_blank">
         📥 Baixar APK
       </a>
     </div>
 
-    <!-- Nebula 64-bit -->
+    <!-- Nebula 64 -->
     <div class="card">
-      <img src="nebula.png" alt="Nebula">
-      <h2>Nebula 64-bit</h2>
-      <p>Versão 64 bits do Nebula Executor.</p>
+      <img src="nebula.png" alt="Nebula 64">
+      <h2>Nebula (64 bits)</h2>
+      <p>Versão para dispositivos 64 bits.</p>
       <a href="https://nebulaexecutor.com/nebula.apk" target="_blank">
         📥 Baixar APK
       </a>
     </div>
 
-    <!-- Nebula 32-bit -->
+    <!-- Nebula 32 -->
     <div class="card">
-      <img src="nebula.png" alt="Nebula">
-      <h2>Nebula 32-bit</h2>
-      <p>Versão 32 bits do Nebula Executor.</p>
+      <img src="nebula.png" alt="Nebula 32">
+      <h2>Nebula (32 bits)</h2>
+      <p>Versão para dispositivos 32 bits.</p>
       <a href="https://nebulaexecutor.com/32bit.apk" target="_blank">
         📥 Baixar APK
       </a>
     </div>
 
+    <!-- CodeX -->
+    <div class="card">
+      <img src="codex.png" alt="CodeX">
+      <h2>Code X</h2>
+      <p>Download da versão fixa do CodeX.</p>
+      <a href="https://www.mediafire.com/file/fi4pcek13z0so81/Codex_v2.670_FIX.apk/file" target="_blank">
+        📥 Baixar APK
+      </a>
+    </div>
   </div>
 
   <footer>
     © 2025 Proller - Todos os direitos reservados
   </footer>
+</main>
 
 </body>
 </html>
