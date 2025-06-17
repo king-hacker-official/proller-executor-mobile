@@ -1,149 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proller Executor Hub</title>
-  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
 
     body {
-      background: #0f0f0f;
-      color: #eee;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      min-height: 100vh;
+      background:#0f0f0f;
+      color:#eee;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:40px 20px;
+      min-height:100vh;
     }
 
     nav {
-      width: 100%;
-      max-width: 1200px;
-      background: #1a1a1a;
-      padding: 15px 30px;
-      border-radius: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      border: 1px solid #333;
+      width:100%;
+      max-width:1200px;
+      background:#1a1a1a;
+      padding:15px 30px;
+      border-radius:16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:40px;
+      border:1px solid #333;
     }
-
     nav h1 {
-      color: #a855f7;
-      font-size: 1.7rem;
+      color:#a855f7;
+      font-size:1.7rem;
     }
-
     nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
+      list-style:none;
+      display:flex;
+      gap:20px;
     }
-
     nav ul li a {
-      color: #eee;
-      text-decoration: none;
-      transition: 0.3s;
-      padding: 6px 12px;
-      border-radius: 8px;
+      color:#eee;
+      text-decoration:none;
+      transition:.3s;
+      padding:6px 12px;
+      border-radius:8px;
     }
-
     nav ul li a:hover {
-      background: #a855f7;
-      color: #fff;
+      background:#a855f7;
+      color:#fff;
     }
 
     h2 {
-      color: #a855f7;
+      color:#a855f7;
     }
 
     p.lead {
-      color: #aaa;
-      margin-bottom: 40px;
-      text-align: center;
-      max-width: 800px;
+      color:#aaa;
+      margin-bottom:40px;
+      text-align:center;
+      max-width:800px;
     }
 
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      width: 100%;
-      max-width: 1100px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:30px;
+      width:100%;
+      max-width:1100px;
     }
 
     .card {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      background:#1a1a1a;
+      border:1px solid #333;
+      border-radius:16px;
+      padding:20px;
+      text-align:center;
+      transition:transform .3s, box-shadow .3s;
     }
-
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(168, 78, 255, 0.5);
+      transform:translateY(-8px);
+      box-shadow:0 0 20px rgba(168,78,255,0.5);
     }
-
     .card img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      margin-bottom: 15px;
+      width:80px;
+      height:80px;
+      object-fit:contain;
+      margin-bottom:15px;
     }
-
     .card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      color: #fff;
+      font-size:1.1rem;
+      margin-bottom:8px;
+      color:#fff;
     }
-
     .card.alert h2 {
-      color: #ff4d4d;
+      color:#ff4d4d;
     }
-
     .card p {
-      font-size: 0.9rem;
-      color: #bbb;
-      margin-bottom: 8px;
+      font-size:.9rem;
+      color:#bbb;
+      margin-bottom:10px;
     }
-
-    .unc {
-      font-weight: 600;
-      color: #a855f7;
-      margin-bottom: 15px;
+    .card .unc {
+      color:#6ee7b7;
+      font-weight:600;
     }
-
+    .card .warning {
+      color:#ff4d4d;
+      font-weight:600;
+    }
     .card a {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 50px;
-      background: linear-gradient(135deg, #6c63ff, #a94eff);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(169, 78, 255, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
+      display:inline-block;
+      padding:10px 20px;
+      border-radius:50px;
+      background:linear-gradient(135deg,#6c63ff,#a94eff);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 4px 15px rgba(169,78,255,0.4);
+      transition:transform .3s, box-shadow .3s;
     }
-
     .card a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(169, 78, 255, 0.7);
+      transform:scale(1.05);
+      box-shadow:0 6px 20px rgba(169,78,255,0.7);
     }
 
     footer {
-      margin-top: 50px;
-      color: #555;
-      font-size: 0.9rem;
-      text-align: center;
+      margin-top:50px;
+      color:#555;
+      font-size:.9rem;
+      text-align:center;
     }
   </style>
 </head>
@@ -160,130 +146,109 @@
 
   <h2>Executores Disponíveis</h2>
   <p class="lead">
-    Aqui estão os principais executores para Roblox. Clique em download para baixar diretamente.
+    Aqui estão os principais executores para Roblox. Clique em download para baixar diretamente. Verifique sempre a segurança e os UNC.
   </p>
 
   <div class="grid">
 
-    <!-- Trigon -->
+    <!-- Ronix -->
     <div class="card">
-      <img src="trigon.png" alt="Trigon" />
-      <h2>Trigon v2.674</h2>
-      <p>Download da versão estável do Trigon.</p>
-      <p class="unc">Unc: 😎 Passed the test with 98% success rate (85 out of 87)</p>
-      <a href="https://www.mediafire.com/file/tb5p4tmh75u0e7x/Trigon_v2.674.apk/file" target="_blank">
-        📥 Baixar APK
-      </a>
+      <img src="ronix.png" alt="Ronix">
+      <h2>Ronix</h2>
+      <p class="unc">✅ UNC: 97% (84/87)</p>
+      <p>Executor Ronix — recomendado.</p>
+      <a href="https://wearedevs.net/d/Ronix" target="_blank">📥 Baixar APK</a>
     </div>
 
-    <!-- Hydrogen -->
+    <!-- Evon -->
     <div class="card alert">
-      <img src="hydrogen.png" alt="Hydrogen" />
-      <h2>Hydrogen (¡SUSPEITA DE RATS!)</h2>
-      <p>Baixe por sua conta e risco — suspeita de RAT.</p>
-      <p class="unc">Unc: ⛔ Failed test, use with caution.</p>
-      <a href="https://dl.hydrogenexecutor.com/Hydrogen-v2.650.apk" target="_blank">
-        ⚠️ Download APK
-      </a>
-    </div>
-
-    <!-- Vegax -->
-    <div class="card">
-      <img src="vegax.png" alt="Vegax" />
-      <h2>Vegax</h2>
-      <p>Download oficial do Vegax.</p>
-      <p class="unc">Unc: 😎 Passed the test with 97% success rate (84 out of 87)</p>
-      <a href="https://github.com/1f0yt/community/releases/download/Vegax/Vega.X.apk" target="_blank">
-        📥 Baixar APK
-      </a>
-    </div>
-
-    <!-- KRNL -->
-    <div class="card">
-      <img src="krnl.png" alt="KRNL" />
-      <h2>KRNL</h2>
-      <p>Versão atualizada do KRNL.</p>
-      <p class="unc">Unc: 😎 Passed the test with 96% success rate (83 out of 87)</p>
-      <a href="https://wrdcdn.net/r/54921/1749933066683/krnl_release_2.677.762_2025.6.15_32.apk" target="_blank">
-        📥 Baixar APK
-      </a>
-    </div>
-
-    <!-- Cubix -->
-    <div class="card">
-      <img src="cubix.png" alt="Cubix" />
-      <h2>Cubix</h2>
-      <p>Executor Cubix para Roblox.</p>
-      <p class="unc">Unc: 😎 Passed with 95% success rate.</p>
-      <a href="https://cubixexecutor.com/apk" target="_blank">
-        📥 Baixar APK
-      </a>
+      <img src="evon.png" alt="Evon">
+      <h2>Evon (⚠️)</h2>
+      <p class="unc">✅ UNC: 98% (80/82)</p>
+      <p class="warning">⚠️ ¡O EVON DE PC TEM SUSPEITA DE RAT!</p>
+      <p>Esta versão é Android e não possui registros suspeitos.</p>
+      <a href="https://evon.cc/android/dl-a/Evon.apk" target="_blank">⚠️ Baixar APK</a>
     </div>
 
     <!-- SubZero -->
     <div class="card">
-      <img src="subzero.png" alt="SubZero" />
-      <h2>SubZero</h2>
-      <p>Executor SubZero para Roblox.</p>
-      <p class="unc">Unc: 😎 Passed with 94% success rate.</p>
-      <a href="https://subzeroexecutor.com/subzero.apk" target="_blank">
-        📥 Baixar APK
-      </a>
+      <img src="subzero.png" alt="SubZero">
+      <h2>SubZero (Beta Fluxus)</h2>
+      <p class="unc">✅ UNC: 88% (72/82) — ⛔ 10 Fails</p>
+      <p>Versão Beta do Fluxus disfarçada como SubZero.</p>
+      <a href="https://subzeroexecutor.com/subzero.apk" target="_blank">📥 Baixar APK</a>
     </div>
 
-    <!-- Ronix -->
+    <!-- Trigon -->
     <div class="card">
-      <img src="ronix.png" alt="Ronix" />
-      <h2>Ronix</h2>
-      <p>Executor Ronix — recomendado.</p>
-      <p class="unc">Unc: 😎 Passed the test with 97% success rate (84 out of 87)</p>
-      <a href="https://wearedevs.net/d/Ronix" target="_blank">
-        📥 Baixar APK
-      </a>
+      <img src="trigon.png" alt="Trigon">
+      <h2>Trigon v2.674</h2>
+      <p class="unc">✅ UNC: 93% (76/82)</p>
+      <p>Download da versão estável do Trigon.</p>
+      <a href="https://www.mediafire.com/file/tb5p4tmh75u0e7x/Trigon_v2.674.apk/file" target="_blank">📥 Baixar APK</a>
     </div>
 
-    <!-- Evon -->
+    <!-- Vegax -->
     <div class="card">
-      <img src="evon.png" alt="Evon" />
-      <h2>Evon</h2>
-      <p>Executor Evon atualizado.</p>
-      <p class="unc">Unc: 😎 Passed with 95% success rate.</p>
-      <a href="https://evon.cc/android/dl-a/Evon.apk" target="_blank">
-        📥 Baixar APK
-      </a>
+      <img src="vegax.png" alt="Vegax">
+      <h2>Vegax</h2>
+      <p class="unc">✅ UNC: 98% (81/83)</p>
+      <p>Executor Vegax — confiável e atualizado.</p>
+      <a href="https://github.com/1f0yt/community/releases/download/Vegax/Vega.X.apk" target="_blank">📥 Baixar APK</a>
+    </div>
+
+    <!-- Hydrogen -->
+    <div class="card alert">
+      <img src="hydrogen.png" alt="Hydrogen">
+      <h2>Hydrogen (⚠️)</h2>
+      <p class="unc">✅ UNC: 92% (75/82)</p>
+      <p class="warning">⚠️ Suspeita de RAT. Baixe por sua conta e risco.</p>
+      <a href="https://dl.hydrogenexecutor.com/Hydrogen-v2.650.apk" target="_blank">⚠️ Baixar APK</a>
+    </div>
+
+    <!-- KRNL -->
+    <div class="card">
+      <img src="krnl.png" alt="KRNL">
+      <h2>KRNL</h2>
+      <p class="unc">✅ UNC: 95% (78/82)</p>
+      <p>Versão atualizada do KRNL.</p>
+      <a href="https://wrdcdn.net/r/54921/1749933066683/krnl_release_2.677.762_2025.6.15_32.apk" target="_blank">📥 Baixar APK</a>
+    </div>
+
+    <!-- Cubix -->
+    <div class="card">
+      <img src="cubix.png" alt="Cubix">
+      <h2>Cubix</h2>
+      <p class="unc">✅ UNC: 91% (74/82)</p>
+      <p>Executor Cubix para Roblox.</p>
+      <a href="https://cubixexecutor.com/apk" target="_blank">📥 Baixar APK</a>
     </div>
 
     <!-- Nebula 64 -->
     <div class="card">
-      <img src="nebula.png" alt="Nebula 64bit" />
+      <img src="nebula.png" alt="Nebula 64bit">
       <h2>Nebula 64bit</h2>
+      <p class="unc">✅ UNC: 94% (77/82)</p>
       <p>Executor Nebula versão 64 bits.</p>
-      <p class="unc">Unc: 😎 Passed with 96% success rate.</p>
-      <a href="https://nebulaexecutor.com/nebula.apk" target="_blank">
-        📥 Baixar APK
-      </a>
+      <a href="https://nebulaexecutor.com/nebula.apk" target="_blank">📥 Baixar APK</a>
     </div>
 
     <!-- Nebula 32 -->
     <div class="card">
-      <img src="nebula.png" alt="Nebula 32bit" />
+      <img src="nebula.png" alt="Nebula 32bit">
       <h2>Nebula 32bit</h2>
+      <p class="unc">✅ UNC: 94% (77/82)</p>
       <p>Executor Nebula versão 32 bits.</p>
-      <p class="unc">Unc: 😎 Passed with 95% success rate.</p>
-      <a href="https://nebulaexecutor.com/32bit.apk" target="_blank">
-        📥 Baixar APK
-      </a>
+      <a href="https://nebulaexecutor.com/32bit.apk" target="_blank">📥 Baixar APK</a>
     </div>
 
     <!-- CodeX -->
     <div class="card">
-      <img src="codex.svg" alt="CodeX" />
-      <h2>Code X</h2>
+      <img src="codex.svg" alt="CodeX">
+      <h2>CodeX</h2>
+      <p class="unc">✅ UNC: 96% (79/82)</p>
       <p>Download da versão fixa do CodeX.</p>
-      <p class="unc">Unc: 😎 Passed with 97% success rate.</p>
-      <a href="https://www.mediafire.com/file/fi4pcek13z0so81/Codex_v2.670_FIX.apk/file" target="_blank">
-        📥 Baixar APK
-      </a>
+      <a href="https://www.mediafire.com/file/fi4pcek13z0so81/Codex_v2.670_FIX.apk/file" target="_blank">📥 Baixar APK</a>
     </div>
 
   </div>
@@ -291,5 +256,6 @@
   <footer>
     © 2025 Proller - Todos os direitos reservados
   </footer>
+
 </body>
 </html>
